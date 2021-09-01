@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { Provider } from "react-redux";
+import store from "./store";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "./store";
+import "./App.css";
+import Add from "./Add";
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Testing Time Library</h3>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <Add />
+        </PersistGate>
+      </Provider>
+      ,
     </div>
   );
 }
-
-export default App;
