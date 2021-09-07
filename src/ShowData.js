@@ -11,6 +11,9 @@ export default function ShowData() {
         <li key={i} className="message">
           {item.name}
           <span style={{ marginLeft: "35px" }}>
+            {moment(item.time).fromNow()}
+          </span>
+          <span style={{ marginLeft: "35px" }}>
             {moment(item.time).calendar()}
           </span>
         </li>
